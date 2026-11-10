@@ -1,0 +1,25 @@
+FORMAT = 12;
+
+BEGIN
+  OUT RESULT.DAT;
+END
+END
+
+OUTPUT RESULT.DAT
+IF FIRST THEN
+  FIRST = 0;
+  ! Заголовок с подчеркиваниями
+  WRITE1 'tau  T(1:11)  TW  Fo  Bi  theta_c  theta_s  q_flux  q_pow';
+ENDIF
+
+! Запрашиваем переменные строго по именам из kordat
+WRITE1 TAU,
+       T.HCS1(1:11,1), 
+       TW.HCS1(2,1),
+       FO,
+       BI,
+       THETA_C,
+       THETA_S,
+       q_flux,
+       q_pow;
+END

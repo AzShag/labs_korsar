@@ -1,0 +1,24 @@
+FORMAT = 12;
+
+BEGIN
+  OUT RESULT.DAT;
+END
+END
+
+OUTPUT RESULT.DAT
+IF FIRST THEN
+  FIRST = 0;
+  WRITE1 'tau  T(1:31)  TW  Fo  Bi  theta_c  theta_s  q_flux  q_pow';
+ENDIF
+
+! Запрашиваем переменные строго по именам из kordat
+WRITE1 TAU,
+       T.HCS1(1:31,1),  ! <--- ИЗМЕНЕНО: выводим 31 значение по радиусу
+       TW.HCS1(2,1),
+       FO,
+       BI,
+       THETA_C,
+       THETA_S,
+       q_flux,
+       q_pow;
+END

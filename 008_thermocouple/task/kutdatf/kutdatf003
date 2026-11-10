@@ -1,0 +1,18 @@
+FORMAT = 12;
+
+BEGIN
+  ! Имя файла результата для этой частоты
+  OUT RES_0.03.DAT;
+END
+END
+
+OUTPUT RES_0.03.DAT
+IF FIRST THEN
+  FIRST = 0;
+  WRITE1 'tau  T_env  T_center';
+ENDIF
+
+WRITE1 TAU,
+       TENV.HCS1(2,1),
+       T.HCS1(1,1);
+END
